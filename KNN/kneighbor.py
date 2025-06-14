@@ -9,7 +9,7 @@ class KNN:
     def nearest_neighbors(self, X_target, k):
         distances = [self.distance(np.abs(row - X_target)) for row in self.X]
         nearest_distances = np.full(shape=k, fill_value=np.max(distances))
-        nearest_indexes = np.full(shape=k, fill_value=np.argmax(distances))
+        nearest_indexes = np.full(shape=k, fill_value=0)
         
         biggest_idx = np.argmax(nearest_distances)
         for index, distance in enumerate(distances):
